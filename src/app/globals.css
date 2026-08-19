@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   AjeboChops.
+   Grounds: deep maroon for dark bands, white for light ones.
+   Brand accent: #FF4F03 orange — used on type, tiles and buttons, never as a
+   page ground.
+   Flat colour throughout: no gradients, no shadows.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-maroon: #4d0711;
+  --color-maroon-2: #66101c;
+
+  /* Light cream ground */
+  --color-cream: #faf6ee;
+  /* One step warmer, for card fills that need to lift off the cream ground */
+  --color-cream-2: #f2ead9;
+
+  --color-orange: #ff4f03;
+  --color-orange-dark: #d94000;
+  --color-white: #ffffff;
+
+  /* Text on a white ground */
+  --color-ink: #6b5b56;
+  --color-ink-2: #463834;
+
+
+  --font-display: var(--font-display-face), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body-face), ui-sans-serif, system-ui, sans-serif;
+
+  /*
+   * Radius scale. Nested corners follow the concentric rule — an inner radius
+   * equals its parent's radius minus the padding between them — so curves stay
+   * parallel instead of drifting apart at the corner.
+   *   button 12 · photo-in-card 12 (28 − 16) · card 28 · section 44
+   */
+  --radius-btn: 12px;
+  --radius-inner: 12px;
+  --radius-card: 28px;
+  --radius-section: 44px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.4em, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* clears the floating header when jumping to an in-page anchor */
+    scroll-padding-top: 8rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-maroon);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    /* nothing on this site is allowed to scroll sideways */
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-orange);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Page gutter — roomier on phones so nothing crowds the edge. */
+  .shell {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 480px) {
+    .shell {
+      padding-inline: 1.75rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 3rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .shell {
+      padding-inline: 5.8125rem;
+    }
+  }
+
+  /* Vertical rhythm: ~80px of air on phones opening to 152px on large screens. */
+  .section-y {
+    padding-block: 5rem;
+  }
+
+  /* Continuation bands: the section above already supplied the top air. */
+  .section-y-b {
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-y {
+      padding-block: 7.5rem;
+    }
+    .section-y-b {
+      padding-bottom: 7.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .section-y {
+      padding-block: 9.5rem;
+    }
+    .section-y-b {
+      padding-bottom: 9.5rem;
+    }
+  }
+
+  /* Bands alternate: cream where the page opens and closes, deep maroon for
+     the content runs in between. */
+  .band-cream {
+    background-color: var(--color-cream);
+    color: var(--color-maroon);
+  }
+
+  .band-deep {
+    background-color: var(--color-maroon);
+    color: var(--color-cream);
+  }
+
+  /*
+   * Device mockup hardware, adapted from the cinematic-hero iPhone bezel.
+   * This is the one place the flat-colour rule is relaxed: a handset is a
+   * physical object, so it gets real bezel shading and button highlights.
+   */
+  .iphone-bezel {
+    background-color: #111;
+    /* Inset rings only — they form the metal edge and black bezel. No drop shadow. */
+    box-shadow:
+      inset 0 0 0 2px #52525b,
+      inset 0 0 0 7px #000;
+  }
+
+  .hardware-btn {
+    background: linear-gradient(90deg, #404040 0%, #171717 100%);
+  }
+
+  .screen-glare {
+    background: linear-gradient(110deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 45%);
+  }
+
+  /* Rounded shoulders where one band meets another above it. */
+  .rounded-top {
+    border-start-start-radius: 28px;
+    border-start-end-radius: 28px;
+  }
+
+  @media (min-width: 768px) {
+    .rounded-top {
+      border-start-start-radius: var(--radius-section);
+      border-start-end-radius: var(--radius-section);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
