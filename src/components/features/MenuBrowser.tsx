@@ -43,14 +43,14 @@ export function MenuBrowser({ excludeSlug, initialFilter = "featured" }: MenuBro
         </p>
       ) : (
         <>
-          <ul className="swipe-row">
+          <ul className="swipe-row md:grid-cols-2 lg:grid-cols-3">
             {dishes.map((dish) => (
-              <li key={dish.slug} className="h-full">
+              <li key={dish.slug}>
                 <DishCard dish={dish} />
               </li>
             ))}
           </ul>
-          <p className="font-body text-xs text-white/50 md:hidden" aria-live="polite">
+          <p className="text-center font-body text-xs text-white/50 md:hidden" aria-live="polite">
             Swipe for more — {dishes.length}{" "}
             {dishes.length === 1 ? "dish" : "dishes"}
           </p>

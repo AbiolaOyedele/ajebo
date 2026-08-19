@@ -184,8 +184,15 @@
    * scrollbar is hidden because the peeking next card already signals the
    * affordance.
    */
+  /*
+   * Swipeable row on phones. Cards bleed to both screen edges via the negative
+   * margin while the first one stays aligned to the shell gutter, and the
+   * scrollbar is hidden because the peeking next card already signals the
+   * affordance. Desktop column counts are left to the caller.
+   */
   .swipe-row {
     display: flex;
+    align-items: stretch;
     gap: 1rem;
     margin-inline: -1.5rem;
     padding-inline: 1.5rem;
@@ -201,16 +208,31 @@
     display: none;
   }
 
+  /*
+   * Items stretch to the tallest card. They must not carry their own height —
+   * a percentage height resolves to auto against an auto-height flex container
+   * and would opt the item out of stretching.
+   */
   .swipe-row > * {
+    display: flex;
     flex: 0 0 82%;
     scroll-snap-align: start;
+  }
+
+  .swipe-row > * > * {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Narrower items, for rows of short cards like the stat tiles. */
+  .swipe-row.is-compact > * {
+    flex: 0 0 52%;
   }
 
   /* Back to a normal grid once there is room for one. */
   @media (min-width: 768px) {
     .swipe-row {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
       margin-inline: 0;
       padding-inline: 0;
@@ -218,14 +240,9 @@
       overflow-x: visible;
     }
 
-    .swipe-row > * {
+    .swipe-row > *,
+    .swipe-row.is-compact > * {
       flex: initial;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .swipe-row {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 

@@ -23,11 +23,11 @@ export function ChopLifeSection() {
           subtitle="Two-litre bowls built for owambe, office lunch and everything in between. One bowl, plenty plates."
         />
 
-        <ul className="swipe-row">
+        <ul className="swipe-row md:grid-cols-2 lg:grid-cols-3">
           {bowls.map((bowl, index) => {
             const photo = DISH_PHOTO[bowl.slug];
             return (
-              <Reveal as="li" key={bowl.slug} delay={index * 0.06} className="h-full">
+              <Reveal as="li" key={bowl.slug} delay={index * 0.06}>
                 <article className="flex h-full flex-col overflow-hidden rounded-card bg-maroon-2">
                   <div className="relative aspect-[16/11] w-full overflow-hidden">
                     <Image
@@ -61,7 +61,7 @@ export function ChopLifeSection() {
           })}
         </ul>
 
-        <p className="-mt-6 font-body text-xs text-white/50 md:hidden">
+        <p className="-mt-6 text-center font-body text-xs text-white/50 md:hidden">
           Swipe for more — {bowls.length} party bowls
         </p>
 

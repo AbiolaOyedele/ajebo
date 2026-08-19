@@ -13,7 +13,7 @@ export function StatTile({ value, label, accent }: StatTileProps) {
   return (
     <div
       className={cn(
-        "flex min-h-44 flex-col items-center justify-center gap-2 rounded-card p-6 text-center sm:min-h-52 sm:p-8",
+        "flex min-h-44 w-full flex-col items-center justify-center gap-2 rounded-card p-6 text-center sm:min-h-52 sm:p-8",
         ACCENT_BG[accent],
         ACCENT_ON[accent],
       )}
