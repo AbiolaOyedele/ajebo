@@ -13,6 +13,7 @@ export interface Photo {
 }
 
 const dish = (file: string, alt: string): Photo => ({ src: `/dishes/${file}.jpg`, alt });
+const scene = (file: string, alt: string): Photo => ({ src: `/scenes/${file}.jpg`, alt });
 
 /** Shared phrasing — these photos genuinely all look like this. */
 const bowl = (what: string) => `${what} in an AjeboChops branded bowl on an orange background`;
@@ -92,17 +93,26 @@ export const DISH_PHOTO: Record<string, Photo> = {
   "milo-hot-chocolate": dish("milo-hot-chocolate", "A branded AjeboChops cup of Milo topped with whipped cream"),
 };
 
-/** Editorial and section photography, drawn from the same shoot. */
+/**
+ * The About grid crossfades through the team shots, the way ajebochops.com does.
+ * These are people, not plated food — the section is about who cooks, not what.
+ */
+export const PEOPLE_PHOTOS: readonly Photo[] = [
+  scene("our-people-1", "An AjeboChops chef in the kitchen, smiling with a fork in hand"),
+  scene("our-people-2", "A member of the AjeboChops team in a branded tee, waving"),
+  scene("our-people-3", "A member of the AjeboChops team in a branded tee, smiling"),
+];
+
+/** Editorial and section photography. */
 export const SCENE = {
   editorialLeft: DISH_PHOTO["2l-prime-ministers-jollof"],
   editorialRight: DISH_PHOTO["peppered-asun"],
   step1: DISH_PHOTO["fusion-fried-rice"],
   step2: DISH_PHOTO["beef-skewers"],
   step3: DISH_PHOTO["2l-obas-native-rice"],
-  aboutPeople: DISH_PHOTO["peppered-asun"],
-  aboutBabies: DISH_PHOTO["nutella-puff-puff"],
-  aboutCommunity: DISH_PHOTO["2l-fusion-fried-rice"],
-  aboutKitchen: DISH_PHOTO["croaker-fish"],
+  aboutBabies: scene("ajebo-babies", "A customer eating a bowl of AjeboChops jollof spaghetti at home"),
+  aboutCommunity: scene("community", "Four friends sitting arm in arm, looking out over the water"),
+  aboutKitchen: scene("our-kitchen", "A customer tasting a bowl beside an AjeboChops chef in the kitchen"),
   chopOffice: DISH_PHOTO["2l-prime-ministers-jollof"],
   chopOwambe: DISH_PHOTO["2l-obas-native-rice"],
   chopHouse: DISH_PHOTO["2l-paparazzi-jollof-spaghetti"],

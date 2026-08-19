@@ -1,13 +1,16 @@
-import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
-import { SCENE } from "@/data/images";
+import { PhotoCrossfade } from "@/components/ui/PhotoCrossfade";
+import { PEOPLE_PHOTOS, SCENE } from "@/data/images";
 
+/** `photos` cycles in place; a single-entry list simply sits still. */
 const ABOUT_TILES = [
-  { caption: "Our People", photo: SCENE.aboutPeople },
-  { caption: "Ajebo Babies", photo: SCENE.aboutBabies },
-  { caption: "Community", photo: SCENE.aboutCommunity },
-  { caption: "Our Kitchen", photo: SCENE.aboutKitchen },
+  { caption: "Our People", photos: PEOPLE_PHOTOS },
+  { caption: "Ajebo Babies", photos: [SCENE.aboutBabies] },
+  { caption: "Community", photos: [SCENE.aboutCommunity] },
+  { caption: "Our Kitchen", photos: [SCENE.aboutKitchen] },
 ];
+
+const TILE_SIZES = "(max-width: 640px) 45vw, (max-width: 1024px) 44vw, 22vw";
 
 const ABOUT_STATS = [
   { value: "5,000+", label: "Happy customers" },
@@ -24,18 +27,12 @@ export function AboutSection() {
             {ABOUT_TILES.map((tile) => (
               <li key={tile.caption}>
                 <figure className="relative aspect-square overflow-hidden rounded-card">
-                  <Image
-                    src={tile.photo.src}
-                    alt={tile.photo.alt}
-                    fill
-                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 44vw, 22vw"
-                    className="object-cover"
-                  />
+                  <PhotoCrossfade photos={tile.photos} sizes={TILE_SIZES} />
                   <div
                     aria-hidden
-                    className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-maroon/95 to-transparent"
+                    className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-maroon via-maroon/70 to-transparent"
                   />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-3 font-body text-[0.65rem] font-bold tracking-[0.15em] text-maroon uppercase sm:p-4 sm:text-xs">
+                  <figcaption className="absolute inset-x-0 bottom-0 p-3 font-body text-xs font-bold tracking-[0.12em] text-white uppercase sm:p-4 sm:text-sm">
                     {tile.caption}
                   </figcaption>
                 </figure>
