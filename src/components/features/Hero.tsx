@@ -18,12 +18,10 @@ export function Hero() {
             <span className="sr-only">Every meal feels like home.</span>
             <span aria-hidden className="block">
               <span className="block">Every meal</span>
-              <span className="block">
-                feels like{" "}
-                <span className="text-orange">
-                  <RotatingWord words={HERO_WORDS} />.
-                </span>
-              </span>
+              <span className="block">feels like</span>
+              {/* The roller takes its own line so its width can change without
+                  nudging the words above it. */}
+              <RotatingWord words={HERO_WORDS} suffix="." className="text-orange" />
             </span>
           </h1>
         </Reveal>

@@ -1,10 +1,11 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/ui/Logo";
+import { MenuToggleIcon } from "@/components/ui/MenuToggleIcon";
 import { NAV_LINKS, SITE } from "@/data/site";
 import { cn } from "@/utils/cn";
 
@@ -16,8 +17,12 @@ import { cn } from "@/utils/cn";
  * centred and an outlined CTA right. Below `lg` the links collapse into a
  * hamburger overlay, which traps focus and closes on Escape.
  */
+/* The reference component's CustomEase "main", expressed as a plain cubic-bezier. */
+const MAIN_EASE = [0.65, 0.01, 0.05, 0.99] as const;
+
 export function Header() {
   const [open, setOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
   const panelRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
@@ -118,44 +123,74 @@ export function Header() {
                 aria-label={open ? "Close menu" : "Open menu"}
                 className="flex size-11 items-center justify-center rounded-full border border-white/50 text-white transition-colors duration-150 hover:bg-cream hover:text-maroon lg:hidden"
               >
-                {open ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
+                <MenuToggleIcon open={open} strokeWidth={2.5} className="size-5" />
               </button>
             </div>
           </div>
 
           {/* Mobile overlay, inside the bar so it shares its rounded shape */}
-          <div
-            id="site-menu"
-            ref={panelRef}
-            hidden={!open}
-            className={cn("pointer-events-auto mt-4 pt-4 lg:hidden")}
-          >
-            <nav aria-label="Mobile">
-              <ul className="flex flex-col">
-                {NAV_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      onClick={close}
-                      className="flex min-h-13 items-center font-display text-2xl font-medium text-white transition-colors duration-150 hover:text-orange"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+          <AnimatePresence>
+            {open ? (
+              <div
+                id="site-menu"
+                ref={panelRef}
+                className={cn("pointer-events-auto mt-4 pt-4 lg:hidden")}
+              >
+                <nav aria-label="Mobile">
+                  <ul className="flex flex-col">
+                    {NAV_LINKS.map((link, index) => (
+                      /*
+                       * Each row is a clipping window; the link rises through it
+                       * from below with a slight counter-rotation, staggered down
+                       * the list. Under reduced motion the rows simply appear.
+                       */
+                      <li key={link.href} className="overflow-hidden">
+                        <motion.div
+                          initial={reduceMotion ? false : { y: "140%", rotate: 10 }}
+                          animate={{ y: 0, rotate: 0 }}
+                          transition={{
+                            duration: 0.7,
+                            ease: MAIN_EASE,
+                            delay: reduceMotion ? 0 : 0.05 * index,
+                          }}
+                        >
+                          <Link
+                            href={link.href}
+                            onClick={close}
+                            className="flex min-h-13 items-center font-display text-2xl font-medium text-white transition-colors duration-150 hover:text-orange"
+                          >
+                            {link.label}
+                          </Link>
+                        </motion.div>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
 
-            <a
-              href={SITE.orderOnlineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={close}
-              className="mt-3 flex min-h-13 w-full items-center justify-center rounded-btn bg-orange px-6 font-display text-xl font-semibold text-white transition-colors duration-150 hover:bg-orange-dark"
-            >
-              Order now
-            </a>
-          </div>
+                <div className="overflow-hidden">
+                  <motion.div
+                    initial={reduceMotion ? false : { y: "140%", rotate: 10 }}
+                    animate={{ y: 0, rotate: 0 }}
+                    transition={{
+                      duration: 0.7,
+                      ease: MAIN_EASE,
+                      delay: reduceMotion ? 0 : 0.05 * NAV_LINKS.length,
+                    }}
+                  >
+                    <a
+                      href={SITE.orderOnlineUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={close}
+                      className="mt-3 flex min-h-13 w-full items-center justify-center rounded-btn bg-orange px-6 font-display text-xl font-semibold text-white transition-colors duration-150 hover:bg-orange-dark"
+                    >
+                      Order now
+                    </a>
+                  </motion.div>
+                </div>
+              </div>
+            ) : null}
+          </AnimatePresence>
         </div>
       </div>
     </header>
