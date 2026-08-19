@@ -21,6 +21,13 @@ npm run dev
 Fonts ship with the repo, so a clean clone builds. See
 [`src/fonts/README.md`](src/fonts/README.md) for the licensing note.
 
+## Deploying
+
+`vercel.json` pins the framework preset to `nextjs`. Without it Vercel imports
+this repo as "Other", runs the build, then publishes `public/` as a static
+folder — every route 404s while the static assets still resolve, which makes it
+look like a routing bug rather than a project-settings one.
+
 ## Structure
 
 ```
