@@ -178,13 +178,115 @@
   }
 
   /* Rounded shoulders where one band meets another above it. */
+  /*
+   * Swipeable row on phones. Cards bleed to both screen edges via the negative
+   * margin while the first one stays aligned to the shell gutter, and the
+   * scrollbar is hidden because the peeking next card already signals the
+   * affordance.
+   */
+  .swipe-row {
+    display: flex;
+    gap: 1rem;
+    margin-inline: -1.5rem;
+    padding-inline: 1.5rem;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline-start: 1.5rem;
+    scrollbar-width: none;
+  }
+
+  .swipe-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .swipe-row > * {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+
+  /* Back to a normal grid once there is room for one. */
+  @media (min-width: 768px) {
+    .swipe-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-inline: 0;
+      padding-inline: 0;
+      padding-bottom: 0;
+      overflow-x: visible;
+    }
+
+    .swipe-row > * {
+      flex: initial;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .swipe-row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
   .rounded-top {
     border-start-start-radius: 28px;
     border-start-end-radius: 28px;
   }
 
   @media (min-width: 768px) {
-    .rounded-top {
+    /*
+   * Swipeable row on phones. Cards bleed to both screen edges via the negative
+   * margin while the first one stays aligned to the shell gutter, and the
+   * scrollbar is hidden because the peeking next card already signals the
+   * affordance.
+   */
+  .swipe-row {
+    display: flex;
+    gap: 1rem;
+    margin-inline: -1.5rem;
+    padding-inline: 1.5rem;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline-start: 1.5rem;
+    scrollbar-width: none;
+  }
+
+  .swipe-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .swipe-row > * {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+
+  /* Back to a normal grid once there is room for one. */
+  @media (min-width: 768px) {
+    .swipe-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-inline: 0;
+      padding-inline: 0;
+      padding-bottom: 0;
+      overflow-x: visible;
+    }
+
+    .swipe-row > * {
+      flex: initial;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .swipe-row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .rounded-top {
       border-start-start-radius: var(--radius-section);
       border-start-end-radius: var(--radius-section);
     }

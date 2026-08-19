@@ -23,7 +23,7 @@ export function ChopLifeSection() {
           subtitle="Two-litre bowls built for owambe, office lunch and everything in between. One bowl, plenty plates."
         />
 
-        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="swipe-row">
           {bowls.map((bowl, index) => {
             const photo = DISH_PHOTO[bowl.slug];
             return (
@@ -60,6 +60,10 @@ export function ChopLifeSection() {
             );
           })}
         </ul>
+
+        <p className="-mt-6 font-body text-xs text-white/50 md:hidden">
+          Swipe for more — {bowls.length} party bowls
+        </p>
 
         <Reveal className="flex flex-col items-center gap-5 rounded-card bg-cream p-8 text-center sm:p-12">
           <h3 className="font-display text-3xl leading-none text-maroon uppercase sm:text-4xl">
