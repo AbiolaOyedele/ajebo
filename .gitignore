@@ -39,10 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# Licensed font binaries — excluded from this public repo.
-# Lufga and Organic Slowing are commercial faces; publishing the files here
-# would redistribute them. Drop them into src/fonts/ locally to build, or
-# remove these two lines if you hold redistribution rights.
-/src/fonts/*.otf
-/src/fonts/*.ttf

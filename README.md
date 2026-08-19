@@ -18,8 +18,8 @@ npm install
 npm run dev
 ```
 
-The fonts are not in the repo — see [`src/fonts/README.md`](src/fonts/README.md).
-Copy them into `src/fonts/` or the build will fail.
+Fonts ship with the repo, so a clean clone builds. See
+[`src/fonts/README.md`](src/fonts/README.md) for the licensing note.
 
 ## Structure
 
