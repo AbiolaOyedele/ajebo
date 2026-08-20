@@ -8,7 +8,7 @@ export function hashString(input: string): number {
   return hash >>> 0;
 }
 
-/** mulberry32 — small, fast, seeded PRNG. Returns values in [0, 1). */
+/** mulberry32: a small, fast, seeded PRNG. Returns values in [0, 1). */
 export function seededRandom(seed: number): () => number {
   let state = seed >>> 0;
   return () => {

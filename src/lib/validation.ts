@@ -22,7 +22,7 @@ export const contactSchema = z.object({
   message: z
     .string()
     .trim()
-    .min(10, "Add a little more detail — at least ten characters.")
+    .min(10, "Add a little more detail, at least ten characters.")
     .max(2000, "That is longer than we can accept. Please keep it under 2,000 characters."),
 });
 

@@ -7,7 +7,7 @@ import { filterDishes } from "@/data/menu";
 import { formatNaira } from "@/utils/format";
 
 /**
- * The Chop Life 2L bowls — the party-size end of the menu.
+ * The Chop Life 2L bowls, the party-size end of the menu.
  *
  * These are the real "Chop Life Bowl" items and prices from the ordering
  * platform, not invented catering packages.
@@ -51,8 +51,7 @@ export function ChopLifeSection() {
                       rel="noopener noreferrer"
                       className="mt-auto flex min-h-11 items-center justify-center rounded-btn bg-maroon px-5 font-display text-lg text-white transition-colors duration-150 hover:bg-orange"
                     >
-                      Order now
-                      <span className="sr-only"> — {bowl.name} on the AjeboChops ordering site</span>
+                      Order now<span className="sr-only">, {bowl.name} on the AjeboChops ordering site</span>
                     </a>
                   </div>
                 </article>
@@ -62,7 +61,7 @@ export function ChopLifeSection() {
         </ul>
 
         <p className="-mt-6 text-center font-body text-xs text-white/50 md:hidden">
-          Swipe for more — {bowls.length} party bowls
+          Swipe through {bowls.length} party bowls
         </p>
 
         <Reveal className="flex flex-col items-center gap-5 rounded-card bg-cream p-8 text-center sm:p-12">
@@ -70,7 +69,7 @@ export function ChopLifeSection() {
             Planning something bigger?
           </h3>
           <p className="max-w-lg font-body text-sm leading-6 text-maroon/70 text-pretty sm:text-base">
-            Birthdays, corporate lunches, church programmes — tell us the headcount and we will build
+            Birthdays, corporate lunches, church programmes. Tell us the headcount and we will build
             the spread around it.
           </p>
           <LinkButton href="/contact" variant="primary" size="lg">

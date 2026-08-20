@@ -36,7 +36,7 @@ export function Logo({ className, asLink = true, size = "md" }: LogoProps) {
   }
 
   return (
-    <Link href="/" aria-label="AjeboChops — home" className={cn("shrink-0 leading-none", className)}>
+    <Link href="/" aria-label="AjeboChops home" className={cn("shrink-0 leading-none", className)}>
       {mark}
     </Link>
   );

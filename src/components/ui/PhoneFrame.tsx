@@ -6,7 +6,7 @@ interface PhoneFrameProps {
   className?: string;
   /**
    * Overrides the frame width. Kept out of `className` because `cn` only joins
-   * strings — two competing `w-*` classes would be settled by stylesheet order
+   * strings, so two competing `w-*` classes would be settled by stylesheet order
    * rather than by the caller.
    */
   widthClassName?: string;

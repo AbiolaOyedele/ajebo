@@ -50,13 +50,13 @@ export function AboutSection() {
           />
 
           <p className="text-base leading-relaxed text-maroon/70 text-pretty">
-            AjeboChops is more than a kitchen — it&apos;s a community. Women-led and family-driven, we
+            AjeboChops is more than a kitchen. It&apos;s a community, women-led and family-driven, and we
             bring together the people who cook, the people who deliver, and the people who gather
             around the table. Everyone has a seat here.
           </p>
 
           <p className="text-base leading-relaxed text-maroon/70 text-pretty">
-            Every recipe carries a story — handed down through generations and perfected by the hands
+            Every recipe carries a story, handed down through generations and perfected by the hands
             that raised us. When you order from AjeboChops, you&apos;re not just eating. You&apos;re
             joining a family.
           </p>

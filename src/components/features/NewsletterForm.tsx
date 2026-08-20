@@ -7,7 +7,7 @@ import { fieldErrors, newsletterSchema } from "@/lib/validation";
 
 /**
  * Footer signup. There is no mailing-list backend wired up yet, so a valid
- * submission confirms locally — swap `onSubmit` for a real endpoint before launch.
+ * submission confirms locally. Swap `onSubmit` for a real endpoint before launch.
  */
 export function NewsletterForm() {
   const [email, setEmail] = useState("");

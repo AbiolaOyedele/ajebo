@@ -15,7 +15,7 @@ interface PhotoCrossfadeProps {
 
 /**
  * Cycles a set of photos in the same frame. Only the first photo carries alt
- * text — to a screen reader this is one image, not a slideshow of three — and
+ * text, so to a screen reader this is one image, not a slideshow of three, and
  * the cycle stops entirely when the visitor has asked for reduced motion.
  */
 export function PhotoCrossfade({ photos, sizes, interval = 4 }: PhotoCrossfadeProps) {

@@ -114,7 +114,7 @@ export function Footer() {
                 <MapPin size={20} />
               </span>
               <p className="absolute right-3 bottom-3 font-body text-[0.65rem] text-white/40">
-                Illustrative map — Lekki Phase 1, Lagos
+                Illustrative map of Lekki Phase 1, Lagos
               </p>
             </div>
 

@@ -8,7 +8,7 @@ const TOTAL_SLOTS = 10;
 
 /**
  * Ten-slot loyalty card. Tapping a slot previews what the card looks like at
- * that point in the run — a toy, but it makes the reward maths tangible.
+ * that point in the run. A toy, but it makes the reward maths tangible.
  */
 export function StampCard() {
   const [collected, setCollected] = useState(7);
@@ -39,7 +39,7 @@ export function StampCard() {
                 aria-pressed={filled}
                 aria-label={
                   isFinal
-                    ? "Preview the card with all ten stamps collected — free meal"
+                    ? "Preview the card with all ten stamps collected, which earns a free meal"
                     : `Preview the card with ${slot} of ${TOTAL_SLOTS} stamps collected`
                 }
                 className={cn(

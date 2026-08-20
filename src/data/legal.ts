@@ -3,7 +3,7 @@ import { SITE } from "./site";
 
 /**
  * Structural boilerplate written for a Nigerian food-delivery brand. It follows
- * the section shape of the live AjeboChops legal pages but is NOT legal advice —
+ * the section shape of the live AjeboChops legal pages but is NOT legal advice.
  * have counsel review and replace before launch (NDPR compliance in particular).
  */
 export const LEGAL_PAGES: readonly LegalPage[] = [
@@ -65,7 +65,7 @@ export const LEGAL_PAGES: readonly LegalPage[] = [
         paragraphs: [
           {
             lead: "Riders and kitchen staff:",
-            text: "Only the details needed to cook and deliver your order — your first name, delivery address, phone number and order contents.",
+            text: "Only the details needed to cook and deliver your order: your first name, delivery address, phone number and order contents.",
           },
           {
             lead: "Service providers:",
@@ -175,7 +175,7 @@ export const LEGAL_PAGES: readonly LegalPage[] = [
         heading: "Orders",
         paragraphs: [
           {
-            text: "An order is an offer to buy. It is accepted only when we confirm it in the app. Until then we may decline it — for example if a dish has sold out, the delivery address falls outside our zone, or we cannot verify payment.",
+            text: "An order is an offer to buy. It is accepted only when we confirm it in the app. Until then we may decline it, for example if a dish has sold out, the delivery address falls outside our zone, or we cannot verify payment.",
           },
           {
             text: "Once a kitchen has started cooking, an order can no longer be cancelled or amended. Contact support straight away if something is wrong and we will do what we can.",
@@ -197,7 +197,7 @@ export const LEGAL_PAGES: readonly LegalPage[] = [
         heading: "Delivery",
         paragraphs: [
           {
-            text: "Our target window is 30 to 50 minutes within our Lagos delivery zones. Estimates are not guarantees — traffic, weather and order volume all affect them.",
+            text: "Our target window is 30 to 50 minutes within our Lagos delivery zones. Estimates are not guarantees. Traffic, weather and order volume all affect them.",
           },
           {
             text: "Someone must be available to receive the order at the address given. If our rider cannot reach you after reasonable attempts, the order may be treated as delivered and no refund will be due.",

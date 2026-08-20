@@ -149,7 +149,7 @@ export function ContactForm() {
         </Button>
         {sent ? (
           <p role="status" className="text-sm font-medium text-white">
-            Thank you — your message is with the team. We reply within one working day.
+            Thank you. Your message is with the team, and we reply within one working day.
           </p>
         ) : null}
       </div>

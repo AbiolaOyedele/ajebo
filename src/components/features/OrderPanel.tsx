@@ -46,7 +46,7 @@ export function OrderPanel({ dishName, unitPrice, orderUrl }: OrderPanelProps) {
       </LinkButton>
 
       <p className="text-xs text-maroon/70">
-        Checkout happens in the AjeboChops app or on our ordering page — your{" "}
+        Checkout happens in the AjeboChops app or on our ordering page, where your{" "}
         {SITE.firstOrderDiscount} first-order discount applies there.
       </p>
     </div>

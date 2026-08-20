@@ -14,7 +14,7 @@ const HERO_CATEGORIES = CATEGORIES.filter((c) => c.id !== "drinks");
  *
  * Proportions follow the reference (a colour card holding an inset photo at a
  * 279:322 ratio with the label on the coloured ground beneath), scaled up 50%.
- * Padding and radii stay absolute — percentages would resolve against the
+ * Padding and radii stay absolute, since percentages would resolve against the
  * marquee track rather than the tile.
  */
 export function CategoryStrip() {

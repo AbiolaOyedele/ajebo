@@ -4,7 +4,7 @@ import type { Category, CategoryId, Dish, FilterId } from "@/types/menu";
  * The AjeboChops catalog.
  *
  * Every item, price and description below is transcribed from the brand's live
- * ordering platform (ajebochops.daash.restaurant) — nothing here is invented.
+ * ordering platform (ajebochops.daash.restaurant). Nothing here is invented.
  * Prices are the platform's "From" figures, which are the base price before
  * size or side options are chosen.
  */

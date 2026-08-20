@@ -17,8 +17,8 @@ export function RewardsSection() {
           />
           <Reveal delay={0.28}>
             <p className="max-w-2xl text-base leading-relaxed text-maroon/70 text-pretty">
-              Every order earns you points. Stack them up, then shop with your points — free meals,
-              free drinks, free delivery.
+              Every order earns you points. Stack them up, then shop with your points for
+              free meals, free drinks and free delivery.
             </p>
           </Reveal>
         </div>

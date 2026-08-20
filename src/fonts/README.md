@@ -4,7 +4,7 @@ Two brand faces, loaded through `next/font/local` in `src/app/layout.tsx`.
 
 | File | Weight | Used for |
 | --- | --- | --- |
-| `OrganicSlowing.ttf` | 400 | Display — headings, buttons, nav, tile labels |
+| `OrganicSlowing.ttf` | 400 | Display: headings, buttons, nav, tile labels |
 | `Lufga-Regular.otf` | 400 | Body text |
 | `Lufga-Medium.otf` | 500 | Body text |
 | `Lufga-SemiBold.otf` | 600 | Body text |

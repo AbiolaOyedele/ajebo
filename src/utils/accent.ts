@@ -1,7 +1,7 @@
 import type { Accent } from "@/types/menu";
 
 /**
- * Tile and card fills — brand orange alternating with a warm cream. Pure white
+ * Tile and card fills: brand orange alternating with a warm cream. Pure white
  * is not used as a fill because most light sections are already white, which
  * would leave the tile with no visible edge.
  * Tailwind only sees class names written out in full, so both are listed.

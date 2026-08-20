@@ -6,7 +6,7 @@ import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { SITE } from "@/data/site";
 import "./globals.css";
 
-/** Organic Slowing — brand display face, single weight. */
+/** Organic Slowing, the brand display face. Single weight. */
 const display = localFont({
   src: "../fonts/OrganicSlowing.ttf",
   variable: "--font-display-face",
@@ -15,7 +15,7 @@ const display = localFont({
   weight: "400",
 });
 
-/** Lufga — brand text face. */
+/** Lufga, the brand text face. */
 const body = localFont({
   src: [
     { path: "../fonts/Lufga-Regular.otf", weight: "400", style: "normal" },
@@ -30,7 +30,7 @@ const body = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — ${SITE.tagline}`,
+    default: `${SITE.name}: ${SITE.tagline}`,
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,
@@ -45,24 +45,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: SITE.name,
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: `${SITE.name}: ${SITE.tagline}`,
     description: SITE.description,
     url: SITE.url,
     locale: "en_NG",
-    images: [{ url: "/ajebochops-logo.png", width: 1163, height: 833, alt: "AjeboChops" }],
+    images: [{ url: "/og-card.png", width: 1200, height: 630, alt: "AjeboChops" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: `${SITE.name}: ${SITE.tagline}`,
     description: SITE.description,
-    images: ["/ajebochops-logo.png"],
+    images: ["/og-card.png"],
   },
   manifest: "/manifest.webmanifest",
   alternates: { canonical: "/" },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#972171",
+  themeColor: "#4d0711",
   colorScheme: "light",
 };
 

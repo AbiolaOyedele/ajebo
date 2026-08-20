@@ -12,7 +12,7 @@ import { cn } from "@/utils/cn";
 /**
  * Floating header bar.
  *
- * The reference does not run a full-bleed header — it floats a maroon rounded
+ * The reference does not run a full-bleed header. It floats a maroon rounded
  * bar 30px down and inset from both edges, with nav links left, the wordmark
  * centred and an outlined CTA right. Below `lg` the links collapse into a
  * hamburger overlay, which traps focus and closes on Escape.
@@ -29,7 +29,7 @@ export function Header() {
 
   const close = useCallback(() => setOpen(false), []);
 
-  // Close on route change — covers browser back/forward as well as link clicks.
+  // Close on route change, covering browser back/forward as well as link clicks.
   const [lastPath, setLastPath] = useState(pathname);
   if (pathname !== lastPath) {
     setLastPath(pathname);

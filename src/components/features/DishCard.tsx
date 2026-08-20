@@ -9,7 +9,7 @@ interface DishCardProps {
 }
 
 /**
- * Menu grid card — identical in construction to the Chop Life cards: photo flush
+ * Menu grid card, identical in construction to the Chop Life cards: photo flush
  * to the card's top edges, cream information block beneath. The photo and name
  * link to this site's dish page; "Order now" goes straight to the item on the
  * ordering platform.
@@ -46,8 +46,7 @@ export function DishCard({ dish }: DishCardProps) {
           rel="noopener noreferrer"
           className="mt-auto flex min-h-11 items-center justify-center rounded-btn bg-maroon px-5 font-display text-lg text-white transition-colors duration-150 hover:bg-orange"
         >
-          Order now
-          <span className="sr-only"> — {dish.name} on the AjeboChops ordering site</span>
+          Order now<span className="sr-only">, {dish.name} on the AjeboChops ordering site</span>
         </a>
       </div>
     </article>

@@ -11,7 +11,7 @@ import { APP_SCREENS, HERO_WORDS, SITE } from "@/data/site";
  * Copy and calls to action on the left, the app itself on the right, and the
  * top of the category strip showing beneath both.
  *
- * The columns stack on phones, copy first and centred — a single narrow column
+ * The columns stack on phones, copy first and centred. A single narrow column
  * of left-aligned display type leaves an awkward ragged edge. The headline's
  * text-align carries through to the rotating word on its own.
  *
@@ -44,7 +44,7 @@ export function Hero() {
 
           <Reveal delay={0.44}>
             <p className="max-w-md font-body text-base leading-relaxed text-maroon/70 text-pretty md:text-lg">
-              Jollof, native rice, asun and gourmet puff puff — cooked to order and at your door in{" "}
+              Jollof, native rice, asun and gourmet puff puff, cooked to order and at your door in{" "}
               {SITE.deliveryWindow} minutes across Lagos.
             </p>
           </Reveal>

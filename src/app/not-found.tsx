@@ -11,7 +11,7 @@ export default function NotFound() {
           This plate is empty
         </h1>
         <p className="max-w-md text-base text-white/70 text-pretty">
-          We could not find that page. The kitchen is still open though — head back and pick
+          We could not find that page. The kitchen is still open, so head back and pick
           something hot.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">

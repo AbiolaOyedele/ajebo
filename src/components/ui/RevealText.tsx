@@ -53,7 +53,7 @@ const WORD: Variants = {
  *
  * Each word sits in its own clipping mask so it appears to lift from behind the
  * line rather than fading in. The mask needs more room than the heading's tight
- * leading gives it, hence the padding — and the matching negative margin pulls
+ * leading gives it, hence the padding, and the matching negative margin pulls
  * the line box back to where it would have been, so line spacing is unchanged.
  *
  * The split is decorative: the whole string is announced once from an `sr-only`

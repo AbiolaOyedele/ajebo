@@ -4,8 +4,8 @@ import type { CategoryId } from "@/types/menu";
  * Photography.
  *
  * Every dish shot is AjeboChops' own, taken from the brand's ordering platform
- * and served locally. They share a house style — the branded bowl on a flat
- * orange ground — which is why cards sit the photo on a colour block.
+ * and served locally. They share a house style, the branded bowl on a flat
+ * orange ground, which is why cards sit the photo on a colour block.
  */
 export interface Photo {
   src: string;
@@ -15,7 +15,7 @@ export interface Photo {
 const dish = (file: string, alt: string): Photo => ({ src: `/dishes/${file}.jpg`, alt });
 const scene = (file: string, alt: string): Photo => ({ src: `/scenes/${file}.jpg`, alt });
 
-/** Shared phrasing — these photos genuinely all look like this. */
+/** Shared phrasing, since these photos genuinely all look like this. */
 const bowl = (what: string) => `${what} in an AjeboChops branded bowl on an orange background`;
 
 /** Tile photo for each category in the hero strip. */
@@ -48,7 +48,7 @@ export const DISH_PHOTO: Record<string, Photo> = {
 
   // Proteins
   "croaker-fish": dish("croaker-fish", bowl("Fried croaker fish in peppered sauce")),
-  "peppered-asun": dish("peppered-asun", bowl("Peppered asun — spicy grilled goat meat")),
+  "peppered-asun": dish("peppered-asun", bowl("Peppered asun, spicy grilled goat meat")),
   "peppered-beef": dish("peppered-beef", bowl("Fried beef coated in peppered sauce")),
   "peppered-chicken": dish("peppered-chicken", bowl("Fried chicken tossed in peppered sauce")),
   "spicy-grilled-turkey": dish("spicy-grilled-turkey", bowl("Spicy grilled turkey in pepper sauce")),
@@ -95,7 +95,7 @@ export const DISH_PHOTO: Record<string, Photo> = {
 
 /**
  * The About grid crossfades through the team shots, the way ajebochops.com does.
- * These are people, not plated food — the section is about who cooks, not what.
+ * These are people, not plated food. The section is about who cooks, not what.
  */
 export const PEOPLE_PHOTOS: readonly Photo[] = [
   scene("our-people-1", "An AjeboChops chef in the kitchen, smiling with a fork in hand"),

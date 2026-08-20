@@ -53,7 +53,7 @@ function formatValue(parsed: Parsed, n: number): string {
  *
  * React only ever renders the finished figure, so there is nothing to mismatch
  * on hydration and the number is real content without JavaScript. The tick is
- * written straight to the text node instead of through state — sixty renders a
+ * written straight to the text node instead of through state. Sixty renders a
  * second per tile would be a lot of React for something the compositor never
  * sees anyway.
  *

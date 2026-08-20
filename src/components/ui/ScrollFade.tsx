@@ -9,7 +9,7 @@ interface ScrollFadeProps {
 }
 
 /**
- * Settles a block back as it leaves the top of the screen — it drifts down a
+ * Settles a block back as it leaves the top of the screen. It drifts down a
  * little, shrinks a little and dims, so the section arriving underneath reads as
  * the thing in front.
  *

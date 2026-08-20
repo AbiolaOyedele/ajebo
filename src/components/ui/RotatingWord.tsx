@@ -52,7 +52,7 @@ export function RotatingWord({
     <span
       aria-hidden
       // The window is 1em so a word is never clipped, but the headline's leading
-      // is tighter than that — left alone, this line would sit 0.12em taller
+      // is tighter than that. Left alone, this line would sit 0.12em taller
       // than the ones above it and the roll would appear to collide with them.
       // The negative margin gives that back, exactly as the word masks do.
       className={cn("-my-[0.06em] inline-block h-[1em] overflow-hidden align-bottom", className)}

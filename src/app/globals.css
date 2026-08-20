@@ -3,7 +3,7 @@
 /* ---------------------------------------------------------------------------
    AjeboChops.
    Grounds: deep maroon for dark bands, white for light ones.
-   Brand accent: #FF4F03 orange — used on type, tiles and buttons, never as a
+   Brand accent: #FF4F03 orange, used on type, tiles and buttons, never as a
    page ground.
    Flat colour throughout: no gradients, no shadows.
 --------------------------------------------------------------------------- */
@@ -29,8 +29,8 @@
   --font-body: var(--font-body-face), ui-sans-serif, system-ui, sans-serif;
 
   /*
-   * Radius scale. Nested corners follow the concentric rule — an inner radius
-   * equals its parent's radius minus the padding between them — so curves stay
+   * Radius scale. Nested corners follow the concentric rule: an inner radius
+   * equals its parent's radius minus the padding between them, so curves stay
    * parallel instead of drifting apart at the corner.
    *   button 12 · photo-in-card 12 (28 − 16) · card 28 · section 44
    */
@@ -73,7 +73,7 @@
    *
    * This has to be on `html` as well as `body`. With `html` left visible, the
    * body's overflow propagates up to the viewport and body itself computes back
-   * to `visible` — so body stops clipping its own children, and a fixed-position
+   * to `visible`, so body stops clipping its own children, and a fixed-position
    * child wider than the viewport (the header, the progress bar) can still pan
    * the page. Setting both leaves nothing to propagate.
    *
@@ -105,7 +105,7 @@
 }
 
 @layer components {
-  /* Page gutter — roomier on phones so nothing crowds the edge. */
+  /* Page gutter, roomier on phones so nothing crowds the edge. */
   .shell {
     width: 100%;
     max-width: 1440px;
@@ -178,7 +178,7 @@
    */
   .iphone-bezel {
     background-color: #111;
-    /* Inset rings only — they form the metal edge and black bezel. No drop shadow. */
+    /* Inset rings only. They form the metal edge and black bezel. No drop shadow. */
     box-shadow:
       inset 0 0 0 2px #52525b,
       inset 0 0 0 7px #000;
@@ -224,7 +224,7 @@
   }
 
   /*
-   * Items stretch to the tallest card. They must not carry their own height —
+   * Items stretch to the tallest card. They must not carry their own height,
    * a percentage height resolves to auto against an auto-height flex container
    * and would opt the item out of stretching.
    */

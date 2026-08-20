@@ -6,7 +6,7 @@ import { SITE } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Reach the ${SITE.name} team — order issues, delivery questions, catering and partnerships. Lekki Phase 1, Lagos.`,
+  description: `Reach the ${SITE.name} team about order issues, delivery questions, catering and partnerships. Lekki Phase 1, Lagos.`,
   alternates: { canonical: "/contact" },
 };
 

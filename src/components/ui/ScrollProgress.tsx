@@ -6,7 +6,7 @@ import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
  * Hairline along the top edge showing how far down the page the visitor is.
  *
  * It sits above the floating header but below the skip link, and it is purely
- * informational decoration — the scrollbar already carries this meaning for
+ * informational decoration, since the scrollbar already carries this meaning for
  * assistive tech, so it is hidden from it.
  */
 export function ScrollProgress() {

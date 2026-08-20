@@ -1,14 +1,14 @@
 # AjeboChops
 
-Marketing site for AjeboChops — a Nigerian kitchen in Lekki Phase 1, Lagos.
+Marketing site for AjeboChops, a Nigerian kitchen in Lekki Phase 1, Lagos.
 Built to the structure of the Stack n Snack reference layout, in AjeboChops'
 own brand.
 
 ## Stack
 
 - **Next.js 16** (App Router) · TypeScript strict
-- **Tailwind CSS v4** — design tokens in `src/app/globals.css`
-- **Framer Motion** — scroll reveals · **Zod** — form validation
+- **Tailwind CSS v4** with design tokens in `src/app/globals.css`
+- **Framer Motion** for scroll reveals · **Zod** for form validation
 - Statically generated: 48 routes, no backend
 
 ## Getting started
@@ -25,7 +25,7 @@ Fonts ship with the repo, so a clean clone builds. See
 
 `vercel.json` pins the framework preset to `nextjs`. Without it Vercel imports
 this repo as "Other", runs the build, then publishes `public/` as a static
-folder — every route 404s while the static assets still resolve, which makes it
+folder. Every route 404s while the static assets still resolve, which makes it
 look like a routing bug rather than a project-settings one.
 
 ## Structure
@@ -47,20 +47,20 @@ public/dishes/    AjeboChops dish photography
 
 `src/data/menu.ts` holds all 38 dishes across 10 categories. **Every name,
 price, description and order link is transcribed from the live ordering
-platform** (`ajebochops.daash.restaurant`) — none of it is invented. Each dish
+platform** (`ajebochops.daash.restaurant`). None of it is invented. Each dish
 carries an `orderUrl` that deep-links to that exact item:
 
 ```
 https://ajebochops.daash.restaurant/?productId=<id>&product=<slug>
 ```
 
-Prices are the platform's "From" figures — the base before size or side options.
+Prices are the platform's "From" figures, the base before size or side options.
 
 ## Design system
 
 Grounds alternate deep maroon `#4D0711` and cream `#FAF6EE`; brand orange
-`#FF4F03` is an accent only, never a page ground. Surfaces are flat — no
-gradients, no shadows — except the phone mockup bezel, which is a physical
+`#FF4F03` is an accent only, never a page ground. Surfaces are flat, with no
+gradients and no shadows, except the phone mockup bezel, which is a physical
 object. Nested corner radii follow the concentric rule (inner = outer −
 padding): `button 12 · inner 12 · card 28 · section 44`.
 

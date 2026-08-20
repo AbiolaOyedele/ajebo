@@ -24,6 +24,8 @@ export async function generateMetadata({
 
   if (!dish) return { title: "Dish not found" };
 
+  const photo = DISH_PHOTO[dish.slug];
+
   return {
     title: dish.name,
     description: dish.description,
@@ -32,6 +34,10 @@ export async function generateMetadata({
       title: `${dish.name} · ${SITE.name}`,
       description: dish.description,
       type: "article",
+      url: `/menu/${dish.slug}`,
+      // Without this the page inherits nothing: an openGraph block with no
+      // images replaces the layout's card rather than extending it.
+      images: photo ? [{ url: photo.src, alt: photo.alt }] : undefined,
     },
   };
 }
@@ -54,6 +60,7 @@ export default async function DishPage({ params }: PageProps<"/menu/[slug]">) {
             "@type": "MenuItem",
             name: dish.name,
             description: dish.description,
+            image: DISH_PHOTO[dish.slug] ? `${SITE.url}${DISH_PHOTO[dish.slug].src}` : undefined,
             offers: {
               "@type": "Offer",
               price: dish.price,

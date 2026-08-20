@@ -24,7 +24,7 @@ interface PhoneCarouselProps {
  *
  * Every phone is pinned to the stage's centre line, so each x carries the -50%
  * that centres it plus its own step out from there. Keeping the centring inside
- * the animated transform means one property owns horizontal position — a
+ * the animated transform means one property owns horizontal position. A
  * `-translate-x-1/2` utility would sit in a second, separately-composed
  * property and make the maths here a half-truth.
  */
@@ -41,7 +41,7 @@ function placement(offset: number) {
       zIndex: 20,
     };
   }
-  // Far enough back to be out of play — parked and faded so it has somewhere to
+  // Far enough back to be out of play, parked and faded so it has somewhere to
   // animate in from when it becomes a neighbour.
   return {
     x: step(offset > 0 ? 84 : -84),
@@ -76,11 +76,11 @@ const STAGE_HEIGHT = "h-[21rem] sm:h-[24rem] lg:h-[27rem]";
  * the stage and the stage clips them, so the crop lands at the same point on
  * each one.
  *
- * Sideways they are deliberately not clipped — the neighbours bleed past the
+ * Sideways they are deliberately not clipped. The neighbours bleed past the
  * stage toward the screen edges, which is what makes the stack read as deep.
  * The hero section clips that, so nothing widens the page.
  *
- * The stack is decorative — it carries no control of its own, so it pauses on
+ * The stack is decorative. It carries no control of its own, so it pauses on
  * hover and on keyboard focus and holds completely still for a visitor who has
  * asked for reduced motion.
  */

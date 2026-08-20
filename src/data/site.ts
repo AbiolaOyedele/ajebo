@@ -6,12 +6,14 @@ export const SITE = {
   legalName: "AjeboChops Ltd.",
   tagline: "Authentic Nigerian cuisine, delivered with fire, flavour and soul.",
   description:
-    "Authentic Nigerian cuisine from our kitchen to your door. Jollof, native rice, asun, gourmet puff puff and more — hot in 30 to 50 minutes across Lagos.",
+    "Authentic Nigerian cuisine from our kitchen to your door. Jollof, native rice, asun, gourmet puff puff and more, hot in 30 to 50 minutes across Lagos.",
   url: "https://www.ajebochops.com",
   email: "support@ajebochops.com",
   altEmail: "ajebochops@gmail.com",
   address: "3 Dr Adewale Oshin Street, Lekki Phase 1, Lagos, Nigeria",
   hours: "Monday – Sunday, 9:00 AM – 1:00 AM",
+  /** The same window in schema.org form. Keep it in step with `hours`. */
+  hoursSchema: "Mo-Su 09:00-01:00",
   phone: "+234 707 063 5617",
   appStoreUrl:
     "https://apps.apple.com/ng/app/ajebo-chops-food-delivery/id6761935648",
@@ -84,10 +86,10 @@ export const PROCESS_STEPS = [
 ] as const;
 
 export const TICKER_ITEMS = [
-  "₦2,500 OFF — your first order, every new Ajebo Baby",
-  "sTAMP iT uP — 1 stamp per order, every 10th meal free",
-  "POINTS PAY — 1 point for every ₦10 you spend",
-  "CHOP LIFE — 2L party bowls that feed the whole compound",
+  "₦2,500 off your first order, every new Ajebo Baby",
+  "Stamp it up: 1 stamp per order, every 10th meal free",
+  "Points pay: 1 point for every ₦10 you spend",
+  "Chop life: 2L party bowls that feed the whole compound",
 ] as const;
 
 export const REWARD_FEATURES = [

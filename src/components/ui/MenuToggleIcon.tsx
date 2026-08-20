@@ -5,12 +5,12 @@ import { cn } from "@/utils/cn";
 
 type MenuToggleIconProps = ComponentProps<"svg"> & {
   open: boolean;
-  /** Size comes from the caller — this component sets no default size class. */
+  /** Size comes from the caller. This component sets no default size class. */
   className?: string;
 };
 
 /**
- * Animated menu glyph — a single stroke that draws itself from a burger into an
+ * Animated menu glyph: a single stroke that draws itself from a burger into an
  * arrow as the menu opens, rotating 45° on the way.
  *
  * Rendered as an icon rather than the original label-plus-checkbox: the header's

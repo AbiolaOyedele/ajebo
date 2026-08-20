@@ -8,7 +8,7 @@ import { filterDishes } from "@/data/menu";
 import type { Dish, FilterId } from "@/types/menu";
 
 interface MenuBrowserProps {
-  /** Slug to leave out of the list — used on dish pages so a dish never lists itself. */
+  /** Slug to leave out of the list, used on dish pages so a dish never lists itself. */
   excludeSlug?: string;
   initialFilter?: FilterId;
 }
@@ -16,7 +16,7 @@ interface MenuBrowserProps {
 /**
  * Two rows of dishes, and a button for the rest.
  *
- * `COLLAPSED` is two rows of the widest grid — three columns at `lg`. The
+ * `COLLAPSED` is two rows of the widest grid, three columns at `lg`. The
  * middle breakpoint lays out two columns, where the same six dishes would run
  * to three rows, so the last two are hidden there in CSS rather than by
  * rendering a different number: the count that is right depends on the column
@@ -28,7 +28,7 @@ const COLLAPSED = 6;
 const TWO_ROW_CLAMP = "md:max-lg:[&>li:nth-child(n+5)]:hidden";
 
 /**
- * Category pills over the dish list. Filtering is entirely client-side — the
+ * Category pills over the dish list. Filtering is entirely client-side, since the
  * catalog ships with the page, so there is no fetch to wait on.
  *
  * On phones the list is a swipeable row rather than a tall column. From `md` up
@@ -43,7 +43,7 @@ export function MenuBrowser({ excludeSlug, initialFilter = "featured" }: MenuBro
     return excludeSlug ? all.filter((d) => d.slug !== excludeSlug) : all;
   }, [filter, excludeSlug]);
 
-  /** A new category starts collapsed again — otherwise the list silently grows. */
+  /** A new category starts collapsed again, otherwise the list silently grows. */
   function changeFilter(next: FilterId) {
     setFilter(next);
     setShowAll(false);
@@ -62,7 +62,7 @@ export function MenuBrowser({ excludeSlug, initialFilter = "featured" }: MenuBro
 
       {dishes.length === 0 ? (
         <p className="rounded-card border border-dashed border-white/20 p-10 text-center text-white/70">
-          Nothing in this category yet. Try another one — the kitchen is always adding more.
+          Nothing in this category yet. Try another one, because the kitchen is always adding more.
         </p>
       ) : (
         <>
@@ -78,7 +78,7 @@ export function MenuBrowser({ excludeSlug, initialFilter = "featured" }: MenuBro
           </ul>
 
           <p className="text-center font-body text-xs text-white/50 md:hidden" aria-live="polite">
-            Swipe for more — {visible.length} {visible.length === 1 ? "dish" : "dishes"}
+            Swipe through {visible.length} {visible.length === 1 ? "dish" : "dishes"}
           </p>
 
           {hasMore ? (

@@ -29,7 +29,9 @@ const restaurantSchema = {
     addressRegion: "Lagos",
     addressCountry: "NG",
   },
-  openingHours: "Mo-Su 10:00-22:00",
+  openingHours: SITE.hoursSchema,
+  telephone: SITE.phone,
+  image: `${SITE.url}/og-card.png`,
   sameAs: [SITE.social.instagram, SITE.social.x, SITE.social.tiktok],
 };
 
