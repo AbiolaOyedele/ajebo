@@ -19,8 +19,14 @@ import { APP_SCREENS, HERO_WORDS, SITE } from "@/data/site";
  * the edge.
  */
 export function Hero() {
+  // The header floats rather than sitting in the flow, so the top padding has to
+  // clear it and then leave a gap on top of that. At the old 40 the headline
+  // started 38px under the bar, which read as crowded.
   return (
-    <section id="home" className="band-cream relative overflow-hidden pt-28 pb-10 md:pt-40 md:pb-14">
+    <section
+      id="home"
+      className="band-cream relative overflow-hidden pt-32 pb-10 md:pt-48 md:pb-14 lg:pt-56"
+    >
       {/*
         `items-end` is what lands the handsets' crop line on the bottom of the
         call-to-action row: both columns are flush at the bottom, and the stack
