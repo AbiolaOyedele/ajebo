@@ -1,5 +1,6 @@
 import { LinkButton } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { RevealText } from "@/components/ui/RevealText";
 import { StoreBadges } from "@/components/ui/StoreBadges";
 import { SITE } from "@/data/site";
 
@@ -8,12 +9,12 @@ export function ClosingCta() {
   return (
     <section aria-labelledby="closing-cta-heading" className="bg-maroon section-y">
       <Reveal className="shell flex flex-col items-center gap-6 text-center">
-        <h2
+        <RevealText
           id="closing-cta-heading"
+          text="Are you an Ajebo Baby?"
+          accent="Ajebo Baby?"
           className="font-display text-[2.5rem] leading-[0.92] font-black text-white text-balance uppercase sm:text-6xl lg:text-7xl"
-        >
-          Are you an Ajebo Baby?
-        </h2>
+        />
 
         <p className="max-w-xl text-base leading-relaxed text-white/75 text-pretty md:text-lg">
           Download the app or order from the website. Your first stamp starts counting from day one.

@@ -2,6 +2,7 @@ import { Download, Star, Zap } from "lucide-react";
 import { CartScreen } from "./CartScreen";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { Reveal } from "@/components/ui/Reveal";
+import { RevealText } from "@/components/ui/RevealText";
 import { StoreBadges } from "@/components/ui/StoreBadges";
 import { SITE } from "@/data/site";
 
@@ -23,9 +24,11 @@ export function DownloadSection() {
 
         <Reveal delay={0.1} className="flex flex-col items-start gap-5">
 
-          <h2 className="font-display text-[2.35rem] leading-[0.95] font-black text-white/70 text-balance uppercase sm:text-5xl lg:text-[3.75rem]">
-            Order in <span className="text-orange">3 taps.</span> Seriously.
-          </h2>
+          <RevealText
+            text="Order in 3 taps. Seriously."
+            accent="3 taps."
+            className="font-display text-[2.35rem] leading-[0.95] font-black text-white/70 text-balance uppercase sm:text-5xl lg:text-[3.75rem]"
+          />
 
           <p className="max-w-xl text-base leading-relaxed text-white/70 text-pretty">
             Skip the browser. The app remembers your favourites, saves your addresses, tracks your

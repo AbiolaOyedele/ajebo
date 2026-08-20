@@ -1,4 +1,5 @@
 import type { Accent } from "@/types/menu";
+import { CountUp } from "./CountUp";
 import { ACCENT_BG, ACCENT_ON } from "@/utils/accent";
 import { cn } from "@/utils/cn";
 
@@ -19,7 +20,7 @@ export function StatTile({ value, label, accent }: StatTileProps) {
       )}
     >
       <p className="font-display text-4xl leading-none uppercase sm:text-5xl lg:text-6xl">
-        {value}
+        <CountUp value={value} />
       </p>
       <p className="font-body text-xl font-bold opacity-90">{label}</p>
     </div>

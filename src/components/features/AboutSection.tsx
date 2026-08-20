@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/ui/Reveal";
+import { RevealText } from "@/components/ui/RevealText";
 import { PhotoCrossfade } from "@/components/ui/PhotoCrossfade";
 import { PEOPLE_PHOTOS, SCENE } from "@/data/images";
 
@@ -42,9 +43,11 @@ export function AboutSection() {
         </Reveal>
 
         <Reveal delay={0.1} className="flex flex-col gap-6">
-          <h2 className="font-display text-[2.35rem] leading-[0.95] font-black text-maroon text-balance uppercase sm:text-5xl lg:text-[3.75rem]">
-            Built by community, served with <span className="text-orange">love</span>
-          </h2>
+          <RevealText
+            text="Built by community, served with love"
+            accent="love"
+            className="font-display text-[2.35rem] leading-[0.95] font-black text-maroon text-balance uppercase sm:text-5xl lg:text-[3.75rem]"
+          />
 
           <p className="text-base leading-relaxed text-maroon/70 text-pretty">
             AjeboChops is more than a kitchen — it&apos;s a community. Women-led and family-driven, we

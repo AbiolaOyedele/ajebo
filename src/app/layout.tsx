@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Footer } from "@/components/features/Footer";
 import { Header } from "@/components/features/Header";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { SITE } from "@/data/site";
 import "./globals.css";
 
@@ -72,7 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* Scroll reveals ship with an inline opacity:0; without JS they must not
             hide the page's content. */}
         <noscript>
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+          <style>{`[data-reveal],[data-reveal] *{opacity:1!important;transform:none!important}`}</style>
         </noscript>
       </head>
       <body className="flex min-h-full flex-col">
@@ -82,6 +83,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <ScrollProgress />
         <Header />
         <main id="main" className="flex-1">
           {children}

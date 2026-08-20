@@ -2,21 +2,26 @@ import { RewardsScreen } from "./RewardsScreen";
 import { StampCard } from "./StampCard";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { Reveal } from "@/components/ui/Reveal";
+import { RevealText } from "@/components/ui/RevealText";
 import { REWARD_FEATURES } from "@/data/site";
 
 export function RewardsSection() {
   return (
     <section id="rewards" className="band-cream section-y scroll-mt-32">
       <div className="shell flex flex-col gap-14">
-        <Reveal className="flex flex-col items-center gap-4 text-center">
-          <h2 className="font-display text-[2.35rem] leading-[0.95] font-black text-maroon text-balance uppercase sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-            Earn rewards with <span className="text-orange">every order</span>
-          </h2>
-          <p className="max-w-2xl text-base leading-relaxed text-maroon/70 text-pretty">
-            Every order earns you points. Stack them up, then shop with your points — free meals,
-            free drinks, free delivery.
-          </p>
-        </Reveal>
+        <div className="flex flex-col items-center gap-4 text-center">
+          <RevealText
+            text="Earn rewards with every order"
+            accent="every order"
+            className="font-display text-[2.35rem] leading-[0.95] font-black text-maroon text-balance uppercase sm:text-5xl md:text-6xl lg:text-[4.25rem]"
+          />
+          <Reveal delay={0.28}>
+            <p className="max-w-2xl text-base leading-relaxed text-maroon/70 text-pretty">
+              Every order earns you points. Stack them up, then shop with your points — free meals,
+              free drinks, free delivery.
+            </p>
+          </Reveal>
+        </div>
 
         <ul className="grid gap-4 md:grid-cols-3">
           {REWARD_FEATURES.map((feature, index) => (
