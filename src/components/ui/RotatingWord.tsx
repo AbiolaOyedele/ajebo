@@ -51,14 +51,22 @@ export function RotatingWord({
   return (
     <span
       aria-hidden
-      className={cn("inline-block h-[1em] overflow-hidden align-bottom", className)}
+      // The window is 1em so a word is never clipped, but the headline's leading
+      // is tighter than that — left alone, this line would sit 0.12em taller
+      // than the ones above it and the roll would appear to collide with them.
+      // The negative margin gives that back, exactly as the word masks do.
+      className={cn("-my-[0.06em] inline-block h-[1em] overflow-hidden align-bottom", className)}
     >
       <span
         className="flex flex-col transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
         style={{ transform: `translateY(-${index}em)` }}
       >
         {words.map((word) => (
-          <span key={word} className="flex h-[1em] items-center justify-center leading-none">
+          // Block, not flex: the column is as wide as the longest word, so each
+          // word inherits the headline's own text-align instead of being pinned
+          // centre. That is what lets the roller follow the headline from
+          // centred on phones to left-aligned on desktop with no prop.
+          <span key={word} className="block h-[1em] leading-[1em]">
             {word}
             {suffix}
           </span>

@@ -68,12 +68,27 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /*
+   * Nothing on this site is allowed to scroll sideways.
+   *
+   * This has to be on `html` as well as `body`. With `html` left visible, the
+   * body's overflow propagates up to the viewport and body itself computes back
+   * to `visible` — so body stops clipping its own children, and a fixed-position
+   * child wider than the viewport (the header, the progress bar) can still pan
+   * the page. Setting both leaves nothing to propagate.
+   *
+   * Safe here because the site has no `position: sticky` anywhere, which is the
+   * usual thing this breaks.
+   */
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     background-color: var(--color-cream);
     color: var(--color-maroon);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
-    /* nothing on this site is allowed to scroll sideways */
     overflow-x: hidden;
   }
 

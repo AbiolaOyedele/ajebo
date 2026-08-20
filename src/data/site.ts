@@ -26,6 +26,17 @@ export const SITE = {
   deliveryWindow: "30 to 50",
 } as const;
 
+/**
+ * Real captures of the AjeboChops app, shown in the hero handsets. These are
+ * the shipped screens rather than mocked-up markup, so the hero shows what the
+ * visitor actually downloads.
+ */
+export const APP_SCREENS: readonly { src: string; label: string }[] = [
+  { src: "/app/screen-welcome.jpg", label: "the sign-in screen" },
+  { src: "/app/screen-rewards.jpg", label: "the rewards screen and free meal progress" },
+  { src: "/app/screen-home.jpg", label: "the home screen, with today's picks" },
+];
+
 /** The word that swaps in and out of the hero headline. */
 export const HERO_WORDS = ["home", "goodness", "points", "family"] as const;
 

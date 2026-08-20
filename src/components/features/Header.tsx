@@ -79,7 +79,7 @@ export function Header() {
     "font-display text-lg font-medium text-white/85 transition-colors duration-150 hover:text-orange lg:text-xl";
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-3 z-50 md:top-[30px]">
+    <header className="pointer-events-none fixed inset-x-0 top-3 z-50 max-w-[100vw] md:top-[30px]">
       <div className="shell">
         <div className="pointer-events-auto rounded-btn bg-maroon px-5 py-4 ring-1 ring-white/25 md:px-6">
           <div className="flex items-center justify-between gap-4 lg:grid lg:grid-cols-[1fr_auto_1fr]">
