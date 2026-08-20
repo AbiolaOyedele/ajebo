@@ -50,8 +50,8 @@ export function Hero() {
 
           <Reveal delay={0.44}>
             <p className="max-w-md font-body text-base leading-relaxed text-maroon/70 text-pretty md:text-lg">
-              Jollof, native rice, asun and gourmet puff puff, cooked to order and at your door in{" "}
-              {SITE.deliveryWindow} minutes across Lagos.
+              Jollof, native rice, asun and gourmet puff puff, at your door in{" "}
+              {SITE.deliveryWindow} minutes.
             </p>
           </Reveal>
 
