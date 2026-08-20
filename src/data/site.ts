@@ -1,5 +1,4 @@
 import type { Accent } from "@/types/menu";
-import type { RewardTier } from "@/types/content";
 
 export const SITE = {
   name: "AjeboChops",
@@ -88,7 +87,7 @@ export const PROCESS_STEPS = [
 export const TICKER_ITEMS = [
   "₦2,500 off your first order, every new Ajebo Baby",
   "Stamp it up: 1 stamp per order, every 10th meal free",
-  "Points pay: 1 point for every ₦10 you spend",
+  "Points pay: 1 point for every ₦1,000 you spend",
   "Chop life: 2L party bowls that feed the whole compound",
 ] as const;
 
@@ -101,7 +100,7 @@ export const REWARD_FEATURES = [
   },
   {
     title: "Loyalty Points",
-    detail: "1pt / ₦10 spent",
+    detail: "1pt / ₦1,000 spent",
     body: "Points stack quietly in the background, then buy you drinks, delivery and desserts.",
     accent: "orange" as Accent,
   },
@@ -113,11 +112,5 @@ export const REWARD_FEATURES = [
   },
 ] as const;
 
-export const REWARD_TIERS: readonly RewardTier[] = [
-  { id: "free-drink", name: "Free Drink", points: 200, accent: "orange" },
-  { id: "free-delivery", name: "Free Delivery", points: 300, accent: "cream" },
-  { id: "500-off", name: "₦500 Off Order", points: 500, accent: "orange" },
-  { id: "free-dessert", name: "Free Dessert", points: 600, accent: "cream" },
-];
 
 

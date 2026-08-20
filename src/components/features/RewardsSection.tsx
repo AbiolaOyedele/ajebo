@@ -1,4 +1,4 @@
-import { RewardsScreen } from "./RewardsScreen";
+import Image from "next/image";
 import { StampCard } from "./StampCard";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { Reveal } from "@/components/ui/Reveal";
@@ -39,8 +39,22 @@ export function RewardsSection() {
 
         <div className="grid items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-16">
           <Reveal className="flex justify-center lg:justify-start">
-            <PhoneFrame label="AjeboChops app rewards screen showing free-meal progress, points balance and the rewards store">
-              <RewardsScreen />
+            {/*
+              A real capture of the shipped Rewards screen rather than a mocked
+              one, so the points and tiers on show are the ones a visitor will
+              actually meet in the app.
+            */}
+            <PhoneFrame
+              bare
+              label="AjeboChops app rewards screen showing free-meal progress, points balance and the rewards store"
+            >
+              <Image
+                src="/app/screen-rewards.jpg"
+                alt=""
+                fill
+                sizes="(max-width: 640px) 240px, 280px"
+                className="object-cover"
+              />
             </PhoneFrame>
           </Reveal>
 
