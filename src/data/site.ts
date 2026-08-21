@@ -10,6 +10,11 @@ export const SITE = {
   email: "support@ajebochops.com",
   altEmail: "ajebochops@gmail.com",
   address: "3 Dr Adewale Oshin Street, Lekki Phase 1, Lagos, Nigeria",
+  /** The same address split for the locator, which sets it on two lines. */
+  addressStreet: "3 Dr Adewale Oshin Street",
+  addressArea: "Lekki Phase 1, Lagos",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=3+Dr+Adewale+Oshin+Street%2C+Lekki+Phase+1%2C+Lagos%2C+Nigeria",
   hours: "Monday – Sunday, 9:00 AM – 1:00 AM",
   /** The same window in schema.org form. Keep it in step with `hours`. */
   hoursSchema: "Mo-Su 09:00-01:00",

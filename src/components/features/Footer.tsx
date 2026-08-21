@@ -1,6 +1,7 @@
 import { Clock, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { NewsletterForm } from "./NewsletterForm";
+import { LocatorMap } from "@/components/ui/LocatorMap";
 import { Logo } from "@/components/ui/Logo";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 import { StoreBadges } from "@/components/ui/StoreBadges";
@@ -87,36 +88,7 @@ export function Footer() {
               Come say hi
             </h3>
 
-            {/* Stylised locator rather than a paid maps embed. */}
-            <div
-              className="relative h-44 overflow-hidden rounded-card bg-cream sm:h-52"
-              role="img"
-              aria-label={`Approximate location of AjeboChops: ${SITE.address}`}
-            >
-              <div
-                aria-hidden
-                className="absolute inset-0 opacity-40"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(var(--color-cream) 1px, transparent 1px), linear-gradient(90deg, var(--color-cream) 1px, transparent 1px)",
-                  backgroundSize: "44px 44px",
-                  maskImage: "radial-gradient(circle at 50% 45%, black, transparent 78%)",
-                }}
-              />
-              <div
-                aria-hidden
-                className="absolute top-1/2 left-1/2 h-1.5 w-2/3 -translate-x-1/2 -translate-y-1/2 -rotate-12 rounded-full bg-orange/25"
-              />
-              <span
-                aria-hidden
-                className="absolute top-1/2 left-1/2 flex size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-orange text-white shadow-lg"
-              >
-                <MapPin size={20} />
-              </span>
-              <p className="absolute right-3 bottom-3 font-body text-[0.65rem] text-white/40">
-                Illustrative map of Lekki Phase 1, Lagos
-              </p>
-            </div>
+            <LocatorMap />
 
             <ul className="flex flex-col gap-3 text-sm text-white/70">
               <li className="flex items-start gap-3">

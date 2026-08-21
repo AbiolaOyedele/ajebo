@@ -1,17 +1,27 @@
 "use client";
 
-import { Check, Flame } from "lucide-react";
+import { Check, Gift } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { cn } from "@/utils/cn";
 
 const TOTAL_SLOTS = 10;
 
+/** Enough to feel like a press without the card jumping about. */
+const PRESS = { scale: 0.9 };
+const SETTLE = { type: "spring", stiffness: 520, damping: 26 } as const;
+
 /**
  * Ten-slot loyalty card. Tapping a slot previews what the card looks like at
  * that point in the run. A toy, but it makes the reward maths tangible.
+ *
+ * The tenth slot always shows the gift rather than a number, filled or not: it
+ * is the prize, not another stamp, and the app's own rewards screen marks it the
+ * same way.
  */
 export function StampCard() {
   const [collected, setCollected] = useState(7);
+  const reduceMotion = useReducedMotion();
   const complete = collected === TOTAL_SLOTS;
 
   return (
@@ -30,10 +40,11 @@ export function StampCard() {
           const slot = index + 1;
           const filled = slot <= collected;
           const isFinal = slot === TOTAL_SLOTS;
+          const pops = filled && !reduceMotion;
 
           return (
             <li key={slot}>
-              <button
+              <motion.button
                 type="button"
                 onClick={() => setCollected(slot)}
                 aria-pressed={filled}
@@ -42,8 +53,12 @@ export function StampCard() {
                     ? "Preview the card with all ten stamps collected, which earns a free meal"
                     : `Preview the card with ${slot} of ${TOTAL_SLOTS} stamps collected`
                 }
+                whileTap={reduceMotion ? undefined : PRESS}
+                transition={SETTLE}
                 className={cn(
-                  "flex aspect-square w-full min-w-11 items-center justify-center rounded-full border-2 transition-all duration-200",
+                  // Colours stay on a CSS transition; only the transform is
+                  // Framer's, so the two never animate the same property.
+                  "flex aspect-square w-full min-w-11 items-center justify-center rounded-full border-2 transition-colors duration-200",
                   filled
                     ? isFinal
                       ? "border-maroon bg-maroon text-white"
@@ -51,18 +66,36 @@ export function StampCard() {
                     : "border-dashed border-maroon/30 text-maroon/50 hover:border-orange",
                 )}
               >
-                {filled ? (
-                  isFinal ? (
-                    <Flame size={18} aria-hidden />
-                  ) : (
+                <motion.span
+                  // Re-keying on the filled state is what makes this fire once,
+                  // as the slot flips, rather than on every render.
+                  key={filled ? "on" : "off"}
+                  className="flex items-center justify-center"
+                  // Only a stamp landing gets the pop. Clearing one back to a
+                  // number should not animate: it is not an event, and starting
+                  // an unfilled slot at 0.4 would leave it shrunken if the frame
+                  // loop never ran, which is what happens in a background tab.
+                  initial={pops ? { scale: 0.4, opacity: 0 } : false}
+                  animate={pops ? { scale: 1, opacity: 1 } : undefined}
+                  transition={
+                    pops
+                      ? // A slight cascade, so filling nine slots at once reads
+                        // as the card stamping itself rather than one flash.
+                        { ...SETTLE, delay: index * 0.025 }
+                      : undefined
+                  }
+                >
+                  {isFinal ? (
+                    <Gift size={18} aria-hidden />
+                  ) : filled ? (
                     <Check size={18} aria-hidden />
-                  )
-                ) : (
-                  <span aria-hidden className="font-display text-sm font-black">
-                    {slot}
-                  </span>
-                )}
-              </button>
+                  ) : (
+                    <span aria-hidden className="font-display text-sm font-black">
+                      {slot}
+                    </span>
+                  )}
+                </motion.span>
+              </motion.button>
             </li>
           );
         })}
